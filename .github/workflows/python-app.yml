@@ -28,11 +28,11 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Create tables
-      run: python scripts/create_tables.py
+      run: cd scripts && python create_tables.py
     
     - name: Populate tables
-      run: python scripts/populate_db.py
+      run: cd scripts && python populate_db.py
 
     - name: Example querys
-      run: python scripts/example_querys.py
+      run: cd scripts && python example_querys.py
         
