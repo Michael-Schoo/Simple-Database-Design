@@ -4,7 +4,9 @@ con = sqlite3.connect("../data.db")
 
 list = [
     "a.sql",
-    "b.sql"
+    "b.sql",
+    "Users.sql",
+    "Collections.sql",
 ]
 
 for file in list:
