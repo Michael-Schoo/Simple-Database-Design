@@ -7,6 +7,12 @@ list = [
     "b.sql",
     "Users.sql",
     "Collections.sql",
+    "CollectionImages.sql",
+    "CollectionLinks.sql",
+    "CollectionMetadata (book).sql",
+    "CollectionMetadata (music).sql",
+    "Collections+Reviews.sql",
+
 ]
 
 for file in list:

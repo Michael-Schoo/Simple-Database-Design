@@ -6,6 +6,7 @@ list = [
     "a.sql",
     "b.py",
     "Users.py",
+    "Users.sql",
     "Collections.py",
 ]
 

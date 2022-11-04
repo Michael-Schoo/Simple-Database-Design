@@ -1,1 +1,1 @@
-SELECT * FROM Users ORDER BY CreatedAt, Name
+SELECT * FROM Users ORDER BY created_at, Name
