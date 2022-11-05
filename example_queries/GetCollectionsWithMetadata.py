@@ -78,7 +78,7 @@ for collection in collections:
 print("Collections:")
 pp = pprint.PrettyPrinter(indent=4)
 # Not everything printed is visible in the console (because of max length)
-pp.pprint(results[1])
+pp.pprint(results)
 
 # output's something like this:
 # {
