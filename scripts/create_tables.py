@@ -10,8 +10,9 @@ list = [
     "Collections+Images.sql",
     "Collections+Links.sql",
     "Collections+Reviews.sql",
-    "CollectionMetadata (book).sql",
-    "CollectionMetadata (music).sql",
+    "BookMetadata.sql",
+    "MusicMetadata.sql",
+    "Collections+Metadata.sql",
 ]
 
 for file in list:

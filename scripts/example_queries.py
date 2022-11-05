@@ -8,6 +8,8 @@ list = [
     "AllCollections.sql",
     "AllUsers.sql",
     "AllUsers (sorted).sql",
+    "AllMusic.sql",
+    "AllImages.sql",
 ]
 
 
