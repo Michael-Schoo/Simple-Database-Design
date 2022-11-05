@@ -3,16 +3,15 @@ import sqlite3
 con = sqlite3.connect("../data.db")
 
 list = [
-    "a.sql",
-    "b.sql",
     "Users.sql",
     "Collections.sql",
-    "CollectionImages.sql",
-    "CollectionLinks.sql",
+    "Images.sql",
+    "Links.sql",
+    "Collections+Images.sql",
+    "Collections+Links.sql",
+    "Collections+Reviews.sql",
     "CollectionMetadata (book).sql",
     "CollectionMetadata (music).sql",
-    "Collections+Reviews.sql",
-
 ]
 
 for file in list:

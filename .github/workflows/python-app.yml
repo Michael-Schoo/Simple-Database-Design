@@ -33,6 +33,6 @@ jobs:
     - name: Populate tables
       run: cd scripts && python populate_db.py
 
-    - name: Example querys
-      run: cd scripts && python example_querys.py
+    - name: Example queries
+      run: cd scripts && python example_queries.py
         

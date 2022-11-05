@@ -5,8 +5,6 @@ con = sqlite3.connect("../data.db")
 con.row_factory = sqlite3.Row
 
 list = [
-    "a.sql",
-    "b.sql",
     "AllCollections.sql",
     "AllUsers.sql",
     "AllUsers (sorted).sql",
@@ -20,7 +18,7 @@ def dict_from_row(row):
 for file in list:
     print("file: "+file)
     
-    with open("../example_querys/"+file, 'r') as f:
+    with open("../example_queries/"+file, 'r') as f:
         # print(f.read())
         if (file.endswith(".py")):
             exec(f.read())

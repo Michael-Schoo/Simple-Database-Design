@@ -1,3 +1,3 @@
 import create_tables
 import populate_db
-import example_querys
+import example_queries
