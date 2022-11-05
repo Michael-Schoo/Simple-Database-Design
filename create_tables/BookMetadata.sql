@@ -8,5 +8,9 @@ CREATE TABLE BookMetadata
     -- if many authors then seperated by ','
     author TEXT NOT NULL,
     title TEXT NOT NULL,
-    image_url TEXT
+    price INTEGER NOT NULL,
+    summary TEXT NOT NULL,
+    image_id INTEGER,
+
+    FOREIGN KEY (image_id) REFERENCES Images(image_id)
 );

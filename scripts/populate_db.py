@@ -7,6 +7,7 @@ list = [
     "Users.sql",
     "Collections.py",
     "random_songs.py",
+    "random_books.py",
 ]
 
 for file in list:

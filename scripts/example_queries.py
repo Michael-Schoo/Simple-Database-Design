@@ -9,6 +9,7 @@ list = [
     "AllUsers.sql",
     "AllUsers (sorted).sql",
     "AllMusic.sql",
+    "AllBooks.sql",
     "AllImages.sql",
 ]
 
