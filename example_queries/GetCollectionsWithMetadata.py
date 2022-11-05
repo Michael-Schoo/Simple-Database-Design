@@ -1,0 +1,111 @@
+import pprint
+import sqlite3
+con = sqlite3.connect("../data.db")
+con.row_factory = sqlite3.Row
+
+# This file gets all collections and makes a dictionary with the metadata
+# This could be used to display the contents of a collection
+
+
+results = []
+
+# Get all collections
+collections = con.execute(
+    "SELECT collection_id, user_id, name, description, created_at FROM Collections").fetchall()
+
+for collection in collections:
+    result = {}
+    result['collection_id'] = collection[0]
+    # result['user_id'] = collection[1]
+    result['name'] = collection[2]
+    result['description'] = collection[3]
+    result['created_at'] = collection[4]
+
+    # get user from table
+    user = con.execute(
+        "SELECT user_id, name, created_at, email, avatar_url FROM Users WHERE user_id = ?", (collection[1],)).fetchone()
+    result['user'] = {
+        'user_id': user[0],
+        'name': user[1],
+        # 'created_at': user[2],
+        # 'email': user[3],
+        'avatar_url': user[4]
+    }
+
+    # Get all metadata for this collection
+    metadata = con.execute(
+        "SELECT collection_id, music_id, book_id FROM Collections_Metadata WHERE collection_id = ?", (collection[0],)).fetchall()
+    result['items'] = []
+    for item in metadata:
+        if (item[2] != None):
+            # get book metadata
+            book = con.execute(
+                "SELECT book_id, author, title, price, summary, image_id FROM BookMetadata WHERE book_id = ?", (item[2],)).fetchone()
+            # get image url
+            image = con.execute(
+                "SELECT image_id, image_url FROM Images WHERE image_id = ?", (book[5],)).fetchone()
+            result['items'].append({
+                'type': 'book',
+                'book_id': book[0],
+                'author': book[1],
+                'title': book[2],
+                'price': book[3],
+                'summary': book[4],
+                # 'image_id': book[5],
+                'image_url': image[1]
+            })
+
+        if (item[1] != None):
+            # get music metadata
+            music = con.execute(
+                "SELECT music_id, artist, title, image_id FROM MusicMetadata WHERE music_id = ?", (item[1],)).fetchone()
+            # get image url
+            image = con.execute(
+                "SELECT image_id, image_url FROM Images WHERE image_id = ?", (music[3],)).fetchone()
+            result['items'].append({
+                'type': 'music',
+                'music_id': music[0],
+                'artist': music[1],
+                'title': music[2],
+                # 'image_id': music[3],
+                'image_url': image[1]
+            })
+
+    results.append(result)
+    print()
+
+# format dict
+print("Collections:")
+pp = pprint.PrettyPrinter(indent=4)
+# Not everything printed is visible in the console (because of max length)
+pp.pprint(results[1])
+
+# output's something like this:
+# {
+#     'collection_id': 2,
+#     'created_at': '2022-11-05 03:37:25',
+#     'description': 'The following art is horrible',
+#     'items': [
+#         {
+#             'author': 'Terry Brooks',
+#             'book_id': 3,
+#             'image_url': 'http://s.s-bol.com/imgbase0/imagebase/large/FC/2/2/5/2/9200000002212522.jpg',
+#             'price': 17.5,
+#             'summary': 'Vijf eeuwen geleden werd de wereld door een ',
+#             'title': 'Magic staff',
+#             'type': 'book'
+#         },
+#         {
+#             'artist': 'Malky',
+#             'image_url': 'https://assets.genius.com/images/default_cover_image.png?1667505721',
+#             'music_id': 3,
+#             'title': 'Soon',
+#             'type': 'music'
+#         }
+#     ],
+#     'name': 'Never read/listen to these',
+#     'user': {
+#         'avatar_url': 'https://example.com/example.png',', 
+#         'name': 'Person', 'user_id': 4
+#     }
+# }

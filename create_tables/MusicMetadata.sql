@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS MusicMetadata;
 
 -- Create the Collections table
 CREATE TABLE MusicMetadata
-(   music_metadata_id INTEGER PRIMARY KEY AUTOINCREMENT,
+(   music_id INTEGER PRIMARY KEY AUTOINCREMENT,
 
     -- if many artists then seperated by ','
     artist TEXT NOT NULL,

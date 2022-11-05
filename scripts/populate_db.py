@@ -5,9 +5,9 @@ con = sqlite3.connect("../data.db")
 list = [
     "Users.py",
     "Users.sql",
-    "Collections.py",
     "random_songs.py",
     "random_books.py",
+    "Collections.py",
 ]
 
 for file in list:

@@ -10,6 +10,6 @@ CREATE TABLE Collections_Metadata
 
     FOREIGN KEY (collection_id) REFERENCES Images(image_id)
     FOREIGN KEY (music_id) REFERENCES MusicMetadata(music_id)
-    FOREIGN KEY (book_id) REFERENCES bookMetadata(book_id)
+    FOREIGN KEY (book_id) REFERENCES BookMetadata(book_id)
     PRIMARY KEY (collection_id, music_id, book_id)
 );

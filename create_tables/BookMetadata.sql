@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS BookMetadata;
 
 -- Create the Collections table
 CREATE TABLE BookMetadata
-(   music_metadata_id INTEGER PRIMARY KEY AUTOINCREMENT,
+(   book_id INTEGER PRIMARY KEY AUTOINCREMENT,
 
     -- if many authors then seperated by ','
     author TEXT NOT NULL,

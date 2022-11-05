@@ -3,7 +3,7 @@ con = sqlite3.connect("../data.db")
 
 data = [
     {'name': 'a', 'email': 'a@b.c'},
-    {'name': 'b', 'email': 'a@b.c', 'avatar': 'lol'},
+    {'name': 'Person', 'email': 'a@b.c', 'avatar': 'lol'},
     {'name': 'b', 'email': 'a@b.c', 'created': '2008-11-11 13:23:44'},
     {'name': 'a', 'email': 'l@b.c', 'created': '2008-11-11 13:23:44'},
     {'name': 'a', 'email': 'l@b.c', 'created': '2008-11-11 13:13:44', 'avatar': 'https://example.com/example.png'},
