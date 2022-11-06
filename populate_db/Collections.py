@@ -4,6 +4,7 @@ con = sqlite3.connect("../data.db")
 data = [
     {'user_id': 1, 'name': 'My favorite books', 'description': 'Books that you should read, because I say so', 'created': '2008-11-11 13:23:44'},
     {'user_id': 4, 'name': 'Never read/listen to these', 'description': 'The following art is horrible'},
+    {'user_id': 2, 'name': 'Books for life', 'description': 'Books and images'},
 ]
 
 
@@ -38,7 +39,30 @@ def neverRead():
         con.execute("INSERT INTO Collections_Metadata (collection_id, book_id, music_id) VALUES (?, Null, ?)",
                     (2, song[0]))
 
+def imageAndLinks():
+    # get 1 random books from the BookMetadata table
+    books = con.execute("SELECT book_id FROM BookMetadata ORDER BY RANDOM() LIMIT 1").fetchall()
+
+    # add them to the collection+metadata
+    for book in books:
+        con.execute("INSERT INTO Collections_Metadata (collection_id, book_id) VALUES (?, ?)",
+                    (3, book[0]))
+    
+    # get a random image
+    image = con.execute("SELECT image_id FROM Images ORDER BY RANDOM() LIMIT 1").fetchone()
+    # add it to the collection
+    con.execute(
+        "INSERT OR IGNORE INTO Collections_Images (collection_id, image_id) VALUES (?, ?)", (3, image[0]))
+
+    # get random link
+    link = con.execute("SELECT link_id FROM Links ORDER BY RANDOM() LIMIT 1").fetchone()
+    # add it to the collection
+    con.execute(
+        "INSERT OR IGNORE INTO Collections_Links (collection_id, link_id) VALUES (?, ?)", (3, link[0]))
+
+
 favoriteBooks()
 neverRead()
+imageAndLinks()
 
 con.commit()

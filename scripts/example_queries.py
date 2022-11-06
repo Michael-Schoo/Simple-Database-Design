@@ -13,6 +13,7 @@ list = [
     "AllBooks.sql",
     "AllImages.sql",
     "AllCollection_Metadata.sql",
+    "AddUser.m.sql"
 ]
 
 
@@ -27,8 +28,9 @@ for file in list:
         # print(f.read())
         if (file.endswith(".py")):
             exec(f.read())
+        elif (file.endswith(".m.sql")):
+            print(con.executescript(f.read()).fetchall())
         elif (file.endswith(".sql")):
-            # print(con.execute(f.read()).fetchall())
             data = [dict_from_row(row) for row in con.execute(f.read()).fetchall()]
             df = pandas.DataFrame.from_dict(data)
             print(df)

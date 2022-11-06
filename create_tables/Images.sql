@@ -3,7 +3,12 @@ DROP TABLE IF EXISTS Images;
 
 -- Create the Collections table
 CREATE TABLE Images
-(   image_id INTEGER PRIMARY KEY AUTOINCREMENT,
+(   -- The image_id is the primary key for the Images table
+    image_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    -- The url for the image
     image_url TEXT NOT NULL,
+
+    -- The alternative text (if aplicable)
     alt TEXT
 );

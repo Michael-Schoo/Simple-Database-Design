@@ -3,8 +3,10 @@ DROP TABLE IF EXISTS Collections_Metadata;
 
 -- Create the Collections table
 CREATE TABLE Collections_Metadata
-(   collection_id INTEGER NOT NULL,
-    -- is only going to one of the below (not both, or none) 
+(   -- The collection_id is the primary key for the Collections table
+    collection_id INTEGER NOT NULL,
+
+    -- Second primary key only going to one of the below (not both, or none) 
     music_id INTEGER,
     book_id INTEGER,
 

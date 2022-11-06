@@ -5,8 +5,10 @@ con = sqlite3.connect("../data.db")
 list = [
     "Users.py",
     "Users.sql",
-    "random_songs.py",
+    "Links.sql",
+    "Images.sql",
     "random_books.py",
+    "random_songs.py",
     "Collections.py",
 ]
 

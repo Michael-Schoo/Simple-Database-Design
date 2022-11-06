@@ -3,9 +3,18 @@ DROP TABLE IF EXISTS Users;
 
 -- Create the Users table
 CREATE TABLE Users
-(   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+(   -- The user_id is the primary key for the Users table
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    
+    -- The username of the user
     name TEXT NOT NULL,
+
+    -- The time the user was created
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    -- The email of the user
     email TEXT NOT NULL,
+
+    -- The optional custom avatar image for the user
     avatar_url TEXT
 );

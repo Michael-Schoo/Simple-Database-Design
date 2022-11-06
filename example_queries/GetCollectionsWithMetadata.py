@@ -10,8 +10,7 @@ con.row_factory = sqlite3.Row
 results = []
 
 # Get all collections
-collections = con.execute(
-    "SELECT collection_id, user_id, name, description, created_at FROM Collections").fetchall()
+collections = con.execute("SELECT collection_id, user_id, name, description, created_at FROM Collections").fetchall()
 
 for collection in collections:
     result = {}
@@ -70,6 +69,30 @@ for collection in collections:
                 # 'image_id': music[3],
                 'image_url': image[1]
             })
+    
+    # get links
+    links = con.execute("SELECT link_id FROM Collections_Links WHERE collection_id = ?", (collection[0],)).fetchall()
+    result['links'] = []
+    for link in links:
+        link_info = con.execute("SELECT link_id, title, url, favicon_url FROM Links WHERE link_id = ?", (link[0],)).fetchone()
+        result['links'].append({
+            'link_id': link_info[0],
+            'title': link_info[1],
+            'url': link_info[2],
+            'favicon_url': link_info[3]
+        })
+
+    # get images
+    images = con.execute("SELECT image_id FROM Collections_Images WHERE collection_id = ?", (collection[0],)).fetchall()
+    result['images'] = []
+    for image in images:
+        image_info = con.execute("SELECT image_id, image_url, alt FROM Images WHERE image_id = ?", (image[0],)).fetchone()
+        result['images'].append({
+            'image_id': image_info[0],
+            'image_url': image_info[1],
+            'alt': image_info[2]
+        })
+
 
     results.append(result)
     print()
