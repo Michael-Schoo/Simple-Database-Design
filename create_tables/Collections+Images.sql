@@ -14,3 +14,5 @@ CREATE TABLE Collections_Images
     FOREIGN KEY (image_id) REFERENCES Collections(collection_id)
     PRIMARY KEY (image_id, collection_id)
 );
+
+-- Joining table for the Collections and Images tables

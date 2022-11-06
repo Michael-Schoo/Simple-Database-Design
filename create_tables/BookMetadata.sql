@@ -23,3 +23,7 @@ CREATE TABLE BookMetadata
 
     FOREIGN KEY (image_id) REFERENCES Images(image_id)
 );
+
+-- This table should contain every book someone could add to their collection
+-- Only admins can add books to this table (so that thay can be ensured it is good)
+-- If a user wants to add a book to this list, they can request it to be added

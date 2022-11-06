@@ -17,3 +17,7 @@ CREATE TABLE MusicMetadata
 
     FOREIGN KEY (image_id) REFERENCES Images(image_id)
 );
+
+-- This table should contain every music/song someone could add to their collection
+-- Only admins can add music/songs to this table (so that thay can be ensured it is good)
+-- If a user wants to add a music/song to this list, they can request it to be added

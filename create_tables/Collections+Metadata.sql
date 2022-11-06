@@ -15,3 +15,5 @@ CREATE TABLE Collections_Metadata
     FOREIGN KEY (book_id) REFERENCES BookMetadata(book_id)
     PRIMARY KEY (collection_id, music_id, book_id)
 );
+
+-- Joining table for the Collections and MusicMetadata/BookMetadata tables

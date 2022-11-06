@@ -21,3 +21,4 @@ CREATE TABLE Users
 
 -- This table is for storing users
 -- Users can create and modify themselves
+-- The created_at field is automatically set to the current time when the user is created

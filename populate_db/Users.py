@@ -1,6 +1,7 @@
 import sqlite3
 con = sqlite3.connect("../data.db")
 
+# The users to add
 data = [
     {'name': 'a', 'email': 'a@b.c'},
     {'name': 'Person', 'email': 'a@b.c', 'avatar': 'lol'},
@@ -11,10 +12,13 @@ data = [
 
 
 for row in data:
+    # If there the created date is specified, use the provided date
     if ('created' in row):
+        # add the user to the database
         con.execute("INSERT INTO Users (name, created_at, email, avatar_url) VALUES (?, ?, ?, ?)",
                     (row.get('name'), row.get('created', 'CURRENT_TIMESTAMP'), row.get('email'), row.get('avatar')))
     else:
+        # add the user to the database
         con.execute("INSERT INTO Users (name, email, avatar_url) VALUES (?, ?, ?)",
                     (row.get('name'), row.get('email'), row.get('avatar')))
 

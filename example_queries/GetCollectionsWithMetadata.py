@@ -6,7 +6,6 @@ con.row_factory = sqlite3.Row
 # This file gets all collections and makes a dictionary with the metadata
 # This could be used to display the contents of a collection
 
-
 results = []
 
 # Get all collections
@@ -124,6 +123,21 @@ pp.pprint(results)
 #             'music_id': 3,
 #             'title': 'Soon',
 #             'type': 'music'
+#         }
+#     ],
+#     'links': [
+#         {
+#             'favicon_url': 'https://www.google.com/s2/favicons?domain=www.google.com',
+#             'link_id': 1,
+#             'title': 'Google',
+#             'url': 'https://www.google.com/' 
+#         }
+#     ],
+#     'images': [
+#         {
+#             'alt': 'alt text',
+#             'image_id': 1,
+#             'image_url': 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
 #         }
 #     ],
 #     'name': 'Never read/listen to these',

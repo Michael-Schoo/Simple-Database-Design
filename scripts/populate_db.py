@@ -2,6 +2,7 @@
 import sqlite3
 con = sqlite3.connect("../data.db")
 
+# The list of sql commands and python files to execute
 list = [
     "Users.py",
     "Users.sql",
@@ -12,10 +13,13 @@ list = [
     "Collections.py",
 ]
 
+# Execute each sql command
 for file in list:
     print("file: "+file)
+
+    # Open and read the file as a single buffer
     with open("../populate_db/"+file, 'r') as f:
-        # print(f.read())
+        # depending on if it is sql or python, use the appropriate method to execute
         if (file.endswith(".py")):
             exec(f.read())
         elif (file.endswith(".sql")):

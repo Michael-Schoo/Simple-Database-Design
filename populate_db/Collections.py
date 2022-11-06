@@ -1,6 +1,7 @@
 import sqlite3
 con = sqlite3.connect("../data.db")
 
+# The collections to add
 data = [
     {'user_id': 1, 'name': 'My favorite books', 'description': 'Books that you should read, because I say so', 'created': '2008-11-11 13:23:44'},
     {'user_id': 4, 'name': 'Never read/listen to these', 'description': 'The following art is horrible'},
@@ -9,10 +10,13 @@ data = [
 
 
 for row in data:
+    # If there the created date is specified, use the provided date
     if ('created' in row):
+        # add the collection to the database
         con.execute("INSERT INTO Collections (user_id, name, description, created_at) VALUES (?, ?, ?, ?)",
                     (row.get('user_id'), row.get('name'), row.get('description'), row.get('created')))
     else:
+        # add the collection to the database
         con.execute("INSERT INTO Collections (user_id, name, description) VALUES (?, ?, ?)",
                     (row.get('user_id'), row.get('name'), row.get('description')))
 

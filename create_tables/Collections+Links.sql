@@ -13,3 +13,5 @@ CREATE TABLE Collections_links
     FOREIGN KEY (link_id) REFERENCES Collections(collection_id)
     PRIMARY KEY (link_id, collection_id)
 );
+
+-- Joining table for the Collections and Links tables

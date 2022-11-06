@@ -13,3 +13,5 @@ CREATE TABLE Collections_Reviews
     FOREIGN KEY (review_id) REFERENCES Reviews(review_id)
     PRIMARY KEY (collection_id, review_id)
 );
+
+-- Joining table for the Collections and Reviews tables
