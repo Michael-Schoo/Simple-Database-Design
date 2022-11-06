@@ -20,3 +20,7 @@ CREATE TABLE Collections
 
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+-- This table is for storing things in a collection
+-- A user creates a collection and then adds books/music to it
+-- Another user can use different methods to search and find collections

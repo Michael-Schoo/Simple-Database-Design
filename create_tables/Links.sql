@@ -15,3 +15,6 @@ CREATE TABLE Links
     -- The favicon of the link's website (if aplicable)
     favicon_url TEXT
 );
+
+-- This table is for storing links
+-- Users can add links to the database

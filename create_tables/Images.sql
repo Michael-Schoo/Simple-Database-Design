@@ -12,3 +12,7 @@ CREATE TABLE Images
     -- The alternative text (if aplicable)
     alt TEXT
 );
+
+-- This table is for storing images
+-- currently only an admin can add images to the database
+-- Users can only use images that are already exit

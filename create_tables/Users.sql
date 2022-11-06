@@ -18,3 +18,6 @@ CREATE TABLE Users
     -- The optional custom avatar image for the user
     avatar_url TEXT
 );
+
+-- This table is for storing users
+-- Users can create and modify themselves
